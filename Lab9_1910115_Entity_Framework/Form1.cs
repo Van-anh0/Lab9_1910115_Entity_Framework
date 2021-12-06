@@ -202,12 +202,61 @@ namespace Lab9_1910115_Entity_Framework
 
         private void tvCategory_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if(e.Node == null || e.Node.Level < 2 || e.Node.Tag == null)return;
+            if(e.Node == null || e.Node.Level < 2 || e.Node.Tag == null) return;
             var category = e.Node.Tag as Category;
             var dialog = new UpdateCategoryForm(category?.Id);
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 ShowCategories();
+            }
+        }
+
+        private void btnReloadFood_Click(object sender, EventArgs e)
+        {
+            ShowFoodsForNode(tvCategory.SelectedNode);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //nếu không có món ăn nào được chọn, không cần làm gì cả
+            if (lvFood.SelectedItems.Count == 0) return;
+
+            //ngược lại, lấy mã số của món ăn được chọn
+            var dbContext = new RestaurantContext();
+            var selectedFoodId = int.Parse(lvFood.SelectedItems[0].Text);
+
+            //truy vấn để lấy thông tin của món ăn đó
+            var selectedFood = dbContext.Foods.Find(selectedFoodId);
+
+            //nếu tìm hấy thông tin món ăn
+            if (selectedFood != null)
+            {
+                //thì xóa nó khỏi csdl
+                dbContext.Foods.Remove(selectedFood);
+                dbContext.SaveChanges();
+
+                //và đồng thời xóa khỏi listview
+                lvFood.Items.Remove(lvFood.SelectedItems[0]);
+            }
+        }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            var dialog = new UpdateFoodForm();
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                ShowFoodsForNode(tvCategory.SelectedNode);
+            }
+        }
+
+        private void lvFood_DoubleClick(object sender, EventArgs e)
+        {
+            if (lvFood.SelectedItems.Count == 0) return;
+            var foodId = int.Parse(lvFood.SelectedItems[0].Text);
+            var dialog = new UpdateFoodForm(foodId);
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                ShowFoodsForNode(tvCategory.SelectedNode);
             }
         }
     }

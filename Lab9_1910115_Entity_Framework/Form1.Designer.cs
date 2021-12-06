@@ -34,17 +34,17 @@ namespace Lab9_1910115_Entity_Framework
             this.label2 = new System.Windows.Forms.Label();
             this.tvCategory = new System.Windows.Forms.TreeView();
             this.lvFood = new System.Windows.Forms.ListView();
-            this.btnReloadCategory = new System.Windows.Forms.Button();
-            this.btnAddCategory = new System.Windows.Forms.Button();
-            this.btnAddFood = new System.Windows.Forms.Button();
-            this.btnReloadFood = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnReloadCategory = new System.Windows.Forms.Button();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.btnAddFood = new System.Windows.Forms.Button();
+            this.btnReloadFood = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
@@ -99,6 +99,31 @@ namespace Lab9_1910115_Entity_Framework
             this.lvFood.TabIndex = 3;
             this.lvFood.UseCompatibleStateImageBehavior = false;
             this.lvFood.View = System.Windows.Forms.View.Details;
+            this.lvFood.DoubleClick += new System.EventHandler(this.lvFood_DoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Mã số";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Tên đồ ăn/thức uống";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "ĐVT";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Giá bán";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Nhóm mặt hàng";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Ghi chú";
             // 
             // btnReloadCategory
             // 
@@ -131,6 +156,7 @@ namespace Lab9_1910115_Entity_Framework
             this.btnAddFood.Text = "+";
             this.toolTip1.SetToolTip(this.btnAddFood, "Thêm món ăn mới");
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // btnReloadFood
             // 
@@ -141,6 +167,7 @@ namespace Lab9_1910115_Entity_Framework
             this.btnReloadFood.Text = "R";
             this.toolTip1.SetToolTip(this.btnReloadFood, "Tải lại danh sách món ăn");
             this.btnReloadFood.UseVisualStyleBackColor = true;
+            this.btnReloadFood.Click += new System.EventHandler(this.btnReloadFood_Click);
             // 
             // btnDelete
             // 
@@ -151,30 +178,7 @@ namespace Lab9_1910115_Entity_Framework
             this.btnDelete.Text = "-";
             this.toolTip1.SetToolTip(this.btnDelete, "Xóa món ăn được chọn");
             this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Mã số";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Tên đồ ăn/thức uống";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "ĐVT";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Giá bán";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Nhóm mặt hàng";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Ghi chú";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // Form1
             // 
