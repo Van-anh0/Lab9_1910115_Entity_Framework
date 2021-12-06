@@ -70,6 +70,7 @@ namespace Lab9_1910115_Entity_Framework
             // 
             this.txtCategoryID.Location = new System.Drawing.Point(162, 30);
             this.txtCategoryID.Name = "txtCategoryID";
+            this.txtCategoryID.ReadOnly = true;
             this.txtCategoryID.Size = new System.Drawing.Size(161, 22);
             this.txtCategoryID.TabIndex = 3;
             // 
@@ -82,6 +83,7 @@ namespace Lab9_1910115_Entity_Framework
             // 
             // cbbCategoryType
             // 
+            this.cbbCategoryType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCategoryType.FormattingEnabled = true;
             this.cbbCategoryType.Items.AddRange(new object[] {
             "0",
